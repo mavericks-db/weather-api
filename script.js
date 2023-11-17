@@ -1,9 +1,11 @@
 let searchInput = document.querySelector('#search-input');
 let searchButton = document.querySelector('#search-button');
 let cardsContainer = document.querySelector('.cards-container');
+let title = document.querySelector('#title');
 
 const fetchAPI = () => {
   cardsContainer.innerHTML = '';
+  title.innerHTML = '';
 
   let apiURL = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${searchInput.value}?key=5KZNVBS78BXNU9MJWS9T4LD9E`;
 
@@ -13,7 +15,7 @@ const fetchAPI = () => {
       console.log(data);
       let loc = document.createElement('h3');
       loc.textContent = data.resolvedAddress;
-      document.querySelector('#title').appendChild(loc);
+      title.appendChild(loc);
 
       let days = data.days;
 
@@ -32,7 +34,7 @@ const fetchAPI = () => {
         icon.src = `./assets/icons/${el.icon}.svg`;
         icon.alt = el.icon;
 
-        cardDiv.append(datetime, tempmax, tempmin, icon);
+        cardDiv.append(icon, datetime, tempmax, tempmin);
         cardsContainer.appendChild(cardDiv);
       });
     });
