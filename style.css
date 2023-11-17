@@ -109,3 +109,25 @@ header > div {
   width: 30%;
   min-height: 100px;
 }
+
+@media (max-width: 768px) {
+  .cards-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card {
+    width: 80%;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1023px) {
+  .cards-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .card {
+    width: 100%;
+  }
+}
