@@ -40,6 +40,7 @@ const fetchAPI = (loc) => {
         cardsContainer.appendChild(cardDiv);
       });
     });
+  searchInput.value = '';
 };
 
 searchButton.addEventListener('click', fetchAPI(searchInput.value));
@@ -66,9 +67,7 @@ const animation = () => {
 };
 
 window.addEventListener('DOMContentLoaded', () => {
-  setInterval(() => {
-    animation();
-  }, 1000);
+  setInterval(() => {}, 1000);
 });
 
 let header = document.querySelector('header');
