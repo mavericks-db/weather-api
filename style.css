@@ -111,6 +111,21 @@ header > div {
 }
 
 @media (max-width: 768px) {
+  header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  header > div {
+    position: absolute;
+    bottom: -2rem;
+    width: 100%;
+    background-color: #363636;
+  }
+
   .cards-container {
     display: flex;
     flex-direction: column;
