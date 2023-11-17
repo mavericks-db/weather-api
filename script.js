@@ -43,8 +43,13 @@ const fetchAPI = (loc) => {
   searchInput.value = '';
 };
 
-searchButton.addEventListener('click', fetchAPI(searchInput.value));
+searchButton.addEventListener('click', () => {
+  if (!searchInput.value) return;
+  fetchAPI(searchInput.value);
+});
+
 window.addEventListener('keypress', (e) => {
+  if (!searchInput.value) return;
   e.key == 'Enter' ? fetchAPI(searchInput.value) : '';
 });
 
@@ -67,7 +72,9 @@ const animation = () => {
 };
 
 window.addEventListener('DOMContentLoaded', () => {
-  setInterval(() => {}, 1000);
+  setInterval(() => {
+    animation();
+  }, 1000);
 });
 
 let header = document.querySelector('header');
