@@ -49,12 +49,11 @@ window.addEventListener('keypress', (e) => {
 
 fetchAPI('Manila');
 
-window.addEventListener('DOMContentLoaded', () => {
+const animation = () => {
   searchInput.focus();
 
   setTimeout(() => {
     let cards = document.querySelectorAll('.card');
-    console.log(cards);
     cards.forEach((el) => {
       el.addEventListener('mouseenter', () => {
         el.classList.add('color-change-2x');
@@ -63,6 +62,12 @@ window.addEventListener('DOMContentLoaded', () => {
         el.classList.remove('color-change-2x');
       });
     });
+  }, 1000);
+};
+
+window.addEventListener('DOMContentLoaded', () => {
+  setInterval(() => {
+    animation();
   }, 1000);
 });
 
