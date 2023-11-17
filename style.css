@@ -81,6 +81,8 @@ header > div {
   color: black;
   padding: 1rem;
   transition: all 0.3s;
+  background-color: #f9fcff;
+  background-image: linear-gradient(147deg, #f9fcff 0%, #dee4ea 74%);
 }
 
 .card:hover {

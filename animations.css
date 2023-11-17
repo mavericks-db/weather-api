@@ -11,3 +11,17 @@
         opacity: 1;
     }
 }
+
+.color-change-2x {
+    animation: color-change-2x 2s linear infinite alternate both;
+}
+
+@keyframes color-change-2x {
+    0% {
+        background: #19dcea;
+    }
+
+    100% {
+        background: #b22cff;
+    }
+}

@@ -18,8 +18,8 @@ const fetchAPI = () => {
       let days = data.days;
 
       days.map((el) => {
-        let card = document.createElement('div');
-        card.classList.add('card');
+        let cardDiv = document.createElement('div');
+        cardDiv.classList.add('card');
 
         let datetime = document.createElement('p');
         let tempmax = document.createElement('p');
@@ -32,10 +32,8 @@ const fetchAPI = () => {
         icon.src = `./assets/icons/${el.icon}.svg`;
         icon.alt = el.icon;
 
-        icon.style.width = '50px';
-
-        card.append(datetime, tempmax, tempmin, icon);
-        cardsContainer.appendChild(card);
+        cardDiv.append(datetime, tempmax, tempmin, icon);
+        cardsContainer.appendChild(cardDiv);
       });
     });
 };
@@ -60,8 +58,8 @@ window.addEventListener('keypress', (e) => {
       let days = data.days;
 
       days.map((el) => {
-        let card = document.createElement('div');
-        card.classList.add('card', 'fade-in');
+        let cardDiv = document.createElement('div');
+        cardDiv.classList.add('card', 'fade-in');
 
         let datetime = document.createElement('p');
         let tempmax = document.createElement('p');
@@ -74,10 +72,23 @@ window.addEventListener('keypress', (e) => {
         icon.src = `./assets/icons/${el.icon}.svg`;
         icon.alt = el.icon;
 
-        card.style.backgroundImage = `url("icon.src")`;
-
-        card.append(icon, datetime, tempmax, tempmin);
-        cardsContainer.appendChild(card);
+        cardDiv.append(icon, datetime, tempmax, tempmin);
+        cardsContainer.appendChild(cardDiv);
       });
     });
 })();
+
+window.addEventListener('DOMContentLoaded', () => {
+  setTimeout(() => {
+    let cards = document.querySelectorAll('.card');
+    console.log(cards);
+    cards.forEach((el) => {
+      el.addEventListener('mouseenter', () => {
+        el.classList.add('color-change-2x');
+      });
+      el.addEventListener('mouseleave', () => {
+        el.classList.remove('color-change-2x');
+      });
+    });
+  }, 1000);
+});
