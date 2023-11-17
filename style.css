@@ -96,6 +96,7 @@ header > div {
   transition: all 0.3s;
   background-color: #f9fcff;
   background-image: linear-gradient(147deg, #f9fcff 0%, #dee4ea 74%);
+  gap: 1rem;
 }
 
 .card:hover {

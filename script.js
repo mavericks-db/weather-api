@@ -3,11 +3,11 @@ let searchButton = document.querySelector('#search-button');
 let cardsContainer = document.querySelector('.cards-container');
 let title = document.querySelector('#title');
 
-const fetchAPI = () => {
+const fetchAPI = (loc) => {
   cardsContainer.innerHTML = '';
   title.innerHTML = '';
 
-  let apiURL = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${searchInput.value}?key=5KZNVBS78BXNU9MJWS9T4LD9E`;
+  let apiURL = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${loc}?key=5KZNVBS78BXNU9MJWS9T4LD9E`;
 
   fetch(apiURL)
     .then((res) => res.json())
@@ -29,8 +29,8 @@ const fetchAPI = () => {
         let icon = document.createElement('img');
 
         datetime.textContent = el.datetime;
-        tempmax.textContent = el.tempmax;
-        tempmin.textContent = el.tempmin;
+        tempmax.innerHTML = `${el.tempmax} °C <i class="fa-solid fa-temperature-high"></i>`;
+        tempmin.innerHTML = `${el.tempmin} °C <i class="fa-solid fa-temperature-low"></i>`;
         icon.src = `./assets/icons/${el.icon}.svg`;
         icon.alt = el.icon;
 
@@ -40,45 +40,12 @@ const fetchAPI = () => {
     });
 };
 
-searchButton.addEventListener('click', fetchAPI);
+searchButton.addEventListener('click', fetchAPI(searchInput.value));
 window.addEventListener('keypress', (e) => {
-  e.key == 'Enter' ? fetchAPI() : '';
+  e.key == 'Enter' ? fetchAPI(searchInput.value) : '';
 });
 
-(() => {
-  cardsContainer.innerHTML = '';
-  let apiURL = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Manila?key=5KZNVBS78BXNU9MJWS9T4LD9E`;
-
-  fetch(apiURL)
-    .then((res) => res.json())
-    .then((data) => {
-      console.log(data);
-      let loc = document.createElement('h3');
-      loc.textContent = data.resolvedAddress;
-      document.querySelector('#title').appendChild(loc);
-
-      let days = data.days;
-
-      days.map((el) => {
-        let cardDiv = document.createElement('div');
-        cardDiv.classList.add('card', 'fade-in');
-
-        let datetime = document.createElement('p');
-        let tempmax = document.createElement('p');
-        let tempmin = document.createElement('p');
-        let icon = document.createElement('img');
-
-        datetime.textContent = el.datetime;
-        tempmax.textContent = el.tempmax + '°C';
-        tempmin.textContent = el.tempmin + '°C';
-        icon.src = `./assets/icons/${el.icon}.svg`;
-        icon.alt = el.icon;
-
-        cardDiv.append(icon, datetime, tempmax, tempmin);
-        cardsContainer.appendChild(cardDiv);
-      });
-    });
-})();
+fetchAPI('Manila');
 
 window.addEventListener('DOMContentLoaded', () => {
   searchInput.focus();
@@ -99,8 +66,8 @@ window.addEventListener('DOMContentLoaded', () => {
 
 let header = document.querySelector('header');
 window.addEventListener('scroll', () => {
-  header.style.opacity = '0.5';
+  header.style.opacity = '0.9';
   setTimeout(() => {
     header.style.opacity = '1';
-  }, 1500);
+  }, 100);
 });
