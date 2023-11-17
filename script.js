@@ -11,9 +11,9 @@ const fetchAPI = () => {
     .then((res) => res.json())
     .then((data) => {
       console.log(data);
-      let h1 = document.createElement('h1');
-      h1.textContent = data.resolvedAddress;
-      document.querySelector('#title').appendChild(h1);
+      let loc = document.createElement('h3');
+      loc.textContent = data.resolvedAddress;
+      document.querySelector('#title').appendChild(loc);
 
       let days = data.days;
 
@@ -53,9 +53,9 @@ window.addEventListener('keypress', (e) => {
     .then((res) => res.json())
     .then((data) => {
       console.log(data);
-      let h1 = document.createElement('h1');
-      h1.textContent = data.resolvedAddress;
-      document.querySelector('#title').appendChild(h1);
+      let loc = document.createElement('h3');
+      loc.textContent = data.resolvedAddress;
+      document.querySelector('#title').appendChild(loc);
 
       let days = data.days;
 
