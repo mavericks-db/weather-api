@@ -79,6 +79,8 @@ window.addEventListener('keypress', (e) => {
 })();
 
 window.addEventListener('DOMContentLoaded', () => {
+  searchInput.focus();
+
   setTimeout(() => {
     let cards = document.querySelectorAll('.card');
     console.log(cards);
@@ -91,4 +93,12 @@ window.addEventListener('DOMContentLoaded', () => {
       });
     });
   }, 1000);
+});
+
+let header = document.querySelector('header');
+window.addEventListener('scroll', () => {
+  header.style.opacity = '0.5';
+  setTimeout(() => {
+    header.style.opacity = '1';
+  }, 1500);
 });

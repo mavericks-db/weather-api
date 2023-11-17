@@ -13,7 +13,6 @@ html {
 }
 
 body {
-  background-color: #363636;
   color: white;
   height: 100vh;
   font-family: 'Sofia Pro', sans-serif;
@@ -24,8 +23,17 @@ header {
   align-items: center;
   justify-content: space-between;
   padding: 1rem;
-  position: relative;
   font-size: 0.7rem;
+  position: sticky;
+  top: 0;
+  background-color: #363636;
+  z-index: 1;
+}
+
+header h1 {
+  background: -webkit-linear-gradient(#eee, #333);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 header > div {
@@ -61,6 +69,11 @@ header > div {
   border-radius: 0.25rem;
 }
 
+.search-container > button:hover {
+  background-color: #363636;
+  color: white;
+}
+
 .cards-container {
   display: flex;
   align-items: center;
@@ -87,7 +100,7 @@ header > div {
 
 .card:hover {
   cursor: pointer;
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 .card > img {
