@@ -27,14 +27,16 @@ const fetchAPI = (loc) => {
         let tempmax = document.createElement('p');
         let tempmin = document.createElement('p');
         let icon = document.createElement('img');
+        let desc = document.createElement('p');
 
         datetime.textContent = el.datetime;
-        tempmax.innerHTML = `${el.tempmax} °C <i class="fa-solid fa-temperature-high"></i>`;
-        tempmin.innerHTML = `${el.tempmin} °C <i class="fa-solid fa-temperature-low"></i>`;
+        tempmax.innerHTML = `Max Temp: ${el.tempmax} °C <i class="fa-solid fa-temperature-high"></i>`;
+        tempmin.innerHTML = `Min Temp: ${el.tempmin} °C <i class="fa-solid fa-temperature-low"></i>`;
         icon.src = `./assets/icons/${el.icon}.svg`;
         icon.alt = el.icon;
+        desc.textContent = el.description;
 
-        cardDiv.append(icon, datetime, tempmax, tempmin);
+        cardDiv.append(datetime, icon, desc, tempmax, tempmin);
         cardsContainer.appendChild(cardDiv);
       });
     });
