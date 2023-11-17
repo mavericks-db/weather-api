@@ -31,6 +31,7 @@ header {
 }
 
 header h1 {
+  cursor: pointer;
   background: -webkit-linear-gradient(#eee, #333);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -88,7 +89,7 @@ header > div {
   flex-direction: column;
   align-items: center;
   width: 20%;
-  height: max-content;
+  height: 300px;
   background-color: white;
   border-radius: 0.15rem;
   color: black;
